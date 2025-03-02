@@ -11,7 +11,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -47,8 +46,8 @@ public class OrderControllerIT {
                                 .contentType("application/json")
                                 .content(objectMapper.writeValueAsString(request)))
                .andExpect(status().isOk())
-               .andExpect(jsonPath("$.userId").exists())
-               .andExpect(jsonPath("$.placedAt").exists())
-               .andExpect(jsonPath("$.id").exists());
+               .andExpect(jsonPath("$.userId").value(order.userId().toString()))
+               .andExpect(jsonPath("$.id").value(order.id().toString()))
+               .andExpect(jsonPath("$.placedAt").exists());
     }
 }

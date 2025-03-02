@@ -31,6 +31,7 @@ dependencies {
 
     testImplementation("org.instancio:instancio-junit:5.4.0")
 
+    testImplementation("org.wiremock.integrations:wiremock-spring-boot:3.6.0")
 }
 
 buildscript {

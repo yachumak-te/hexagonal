@@ -7,5 +7,5 @@ import lombok.Builder;
 
 
 @Builder
-public record User(UUID id, String name, OffsetDateTime createdAt) {
+public record User(UUID id, String name, OffsetDateTime createdAt, String email) {
 }

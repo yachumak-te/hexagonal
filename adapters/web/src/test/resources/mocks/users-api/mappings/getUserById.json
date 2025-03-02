@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/users/3cd63e13-8747-472c-bc1e-3739cad416f4"
+  },
+  "response": {
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "id": "3cd63e13-8747-472c-bc1e-3739cad416f4",
+      "name": "John Connor",
+      "email": "john.connor@yahoo.com",
+      "createdAt": "2025-01-01T00:00:00Z"
+    },
+    "status": 200
+  }
+}
