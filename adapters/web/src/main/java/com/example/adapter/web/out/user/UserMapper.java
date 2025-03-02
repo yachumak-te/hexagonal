@@ -1,4 +1,4 @@
-package com.example.adapter.web.user;
+package com.example.adapter.web.out.user;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;

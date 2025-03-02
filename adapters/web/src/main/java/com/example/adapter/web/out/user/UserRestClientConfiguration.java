@@ -1,4 +1,4 @@
-package com.example.adapter.web.user;
+package com.example.adapter.web.out.user;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,6 +17,7 @@ public class UserRestClientConfiguration {
     public ApiClient usersApiClient(@Value("${rest.client.users.base-url}") String baseUrl) {
         return new ApiClient().setBasePath(baseUrl);
     }
+
     @Bean
     public UsersApi usersApi(final @Qualifier("usersApiClient") ApiClient usersApiClient) {
         return new UsersApi(usersApiClient);

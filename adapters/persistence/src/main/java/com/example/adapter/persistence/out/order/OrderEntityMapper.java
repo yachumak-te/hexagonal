@@ -1,4 +1,4 @@
-package com.example.adapter.persistence.order;
+package com.example.adapter.persistence.out.order;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;

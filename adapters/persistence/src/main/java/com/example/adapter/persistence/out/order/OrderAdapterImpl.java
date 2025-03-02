@@ -1,4 +1,4 @@
-package com.example.adapter.persistence.order;
+package com.example.adapter.persistence.out.order;
 
 import java.time.OffsetDateTime;
 import java.util.List;

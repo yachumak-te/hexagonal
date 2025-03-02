@@ -1,4 +1,4 @@
-package com.example.adapter.persistence.audit;
+package com.example.adapter.persistence.out.audit;
 
 import jakarta.persistence.*;
 import lombok.Getter;

@@ -16,6 +16,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.example.adapter.web.api_rest.model.CreateOrderRequestDTO;
+import com.example.adapter.web.in.order.OrderController;
+import com.example.adapter.web.in.order.OrderMapperImpl;
 import com.example.app.port.in.order.CreateOrderUseCase;
 import com.example.domain.order.Order;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,16 +40,20 @@ public class OrderControllerIT {
 
     @Test
     public void createOrderTest() throws Exception {
+        // given
         final var request = Instancio.create(CreateOrderRequestDTO.class);
         final var order = Instancio.create(Order.class);
         given(createOrderUseCase.createOrder(any())).willReturn(order);
 
-        mockMvc.perform(post("/orders")
-                                .contentType("application/json")
-                                .content(objectMapper.writeValueAsString(request)))
-               .andExpect(status().isOk())
-               .andExpect(jsonPath("$.userId").value(order.userId().toString()))
-               .andExpect(jsonPath("$.id").value(order.id().toString()))
-               .andExpect(jsonPath("$.placedAt").exists());
+        // when
+        final var actual = mockMvc.perform(post("/orders")
+                                                   .contentType("application/json")
+                                                   .content(objectMapper.writeValueAsString(
+                                                           request)));
+        // then
+        actual.andExpect(status().isOk())
+              .andExpect(jsonPath("$.userId").value(order.userId().toString()))
+              .andExpect(jsonPath("$.id").value(order.id().toString()))
+              .andExpect(jsonPath("$.placedAt").exists());
     }
 }

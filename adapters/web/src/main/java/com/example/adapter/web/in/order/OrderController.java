@@ -1,4 +1,4 @@
-package com.example.adapter.web.order;
+package com.example.adapter.web.in.order;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;

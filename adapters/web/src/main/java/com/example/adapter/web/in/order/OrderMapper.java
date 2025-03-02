@@ -1,4 +1,4 @@
-package com.example.adapter.web.order;
+package com.example.adapter.web.in.order;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
