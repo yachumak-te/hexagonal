@@ -1,0 +1,68 @@
+openapi: 3.0.1
+info:
+  title: Order API
+  description: API for managing orders.
+  version: 1.0.0
+paths:
+  /orders:
+    post:
+      summary: Create a new order
+      description: This endpoint allows you to create a new order with customer and order items.
+      operationId: createOrder
+      tags:
+        - Orders
+      requestBody:
+        description: Order details that need to be created
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrderRequest'
+      responses:
+        '200':
+          description: Successfully created order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          description: Invalid input or missing required parameters
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+    CreateOrderRequest:
+      type: object
+      title: Order
+      properties:
+        userId:
+          type: string
+          format: uuid
+          description: The ID of the user placing the order
+          example: 3cd63e13-8747-472c-bc1e-3739cad416f4
+      required:
+        - userId
+    Order:
+      type: object
+      title: Order
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The ID of the order
+          example: 3cd63e13-8747-472c-bc1e-3739cad416f4
+        userId:
+          type: string
+          format: uuid
+          description: The ID of the user placing the order
+          example: 3cd63e13-8747-472c-bc1e-3739cad416f4
+        placedAt:
+          type: string
+          format: 'date-time'
+          description: Date time when order is placed
+          example: "2025-01-01T00:00:00Z"
+      required:
+        - id
+        - userId
+        - placedAt
