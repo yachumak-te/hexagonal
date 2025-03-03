@@ -18,7 +18,7 @@ public class OrderAdapterImpl implements OrderPort {
 
     private final OrderEntityMapper mapper;
 
-    private OrderJpaAdapter adapter;
+    private final OrderJpaAdapter adapter;
 
     @Override
     public Order save(Order order) {
